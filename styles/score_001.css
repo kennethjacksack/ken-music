@@ -1,0 +1,257 @@
+/* General styling for the body */
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #121212; /* Very dark background for a sophisticated look */
+    color: #e0e0e0; /* Light grey text for readability */
+    font-family: 'Georgia', serif; /* Elegant font */
+    
+    /* More noticeable texture with an overlay */
+    background-image: 
+        linear-gradient(120deg, #2b2b2b, #1e1e1e, #292929, #141414);
+    animation: gradientAnimation 55s ease infinite; /* Subtle gradient animation */
+}
+
+
+
+/* Styling for the date text */
+.date-text {
+    position: fixed; /* Fixes the position relative to the viewport */
+    bottom: 10px; /* Space from the bottom */
+    right: 10px; /* Space from the right */
+    font-size: 12px; /* Smaller font size for further subtlety */
+    color: #969696; /* Even lighter gray for a more muted appearance */
+    background: none; /* Remove background color */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    border: none; /* Remove border */
+    font-family: 'Georgia', serif; /* Elegant font */
+    opacity: 0.5; /* Lower opacity for additional subtlety */
+}
+
+
+
+
+/* Styling for the container */
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    z-index: 1; /* Ensure container is above other content */
+    padding: 20px; /* Padding to ensure content is not touching edges */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+/* Styling for the audio player */
+audio {
+    width: 100%; /* Full width of the container */
+    max-width: 600px; /* Limit maximum width */
+    background-color: #333; /* Dark background for the player */
+    border-radius: 8px; /* Rounded corners for the player */
+    border: 1px solid #444; /* Slightly lighter border */
+}
+
+/* Styling for the time display */
+.time-display {
+    font-size: 12px; /* Adjust size as needed */
+    color: #747474; /* Light text color for readability */
+    margin-top: 10px; /* Space above the time display */
+    text-align: center; /* Center the text */
+    z-index: 2; /* Ensure time display is above the controls */
+    position: relative; /* Ensure proper stacking context */
+}
+
+/* Styling for the controls */
+.controls {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    z-index: 1; /* Ensure controls are below the time display */
+}
+
+/* Styling for the buttons */
+button {
+    background-color: #444; /* Dark button background */
+    color: #e0e0e0; /* Light button text */
+    border: none;
+    padding: 5px; /* Reduced padding for smaller buttons */
+    border-radius: 50%; /* Rounded buttons */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Smaller button size */
+    height: 40px; /* Smaller button size */
+    box-shadow: none; /* Remove shadow for a subtler look */
+}
+
+button svg {
+    width: 20px; /* Smaller icon size */
+    height: 20px; /* Smaller icon size */
+    fill: #e0e0e0; /* Light color for the icons */
+}
+
+button:hover {
+    background-color: #555; /* Slightly lighter on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+input[type="range"] {
+    width: 300px;
+    margin-top: 10px;
+    background: #333; /* Dark background for range input */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    background: #e0e0e0; /* Light color for the thumb */
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background: #e0e0e0; /* Light color for the thumb */
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Styling for the back button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px; /* Size of the arrow */
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+    z-index: 2; /* Ensure the back button is above other content */
+}
+
+.back-button:hover {
+    color: #555; /* Slightly lighter on hover */
+}
+
+/* Styling for the background shapes and gradient */
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure shapes don't block interactions */
+    z-index: 0; /* Ensure shapes are behind other content */
+    background: linear-gradient(120deg, #2b2b2b, #1e1e1e, #292929, #141414);
+    background-size: 400% 400%; /* Larger size for smoother transitions */
+    animation: gradientAnimation 55s ease infinite; /* Subtle, slightly faster animation */
+}
+
+/* Gradient background animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Styling for abstract shapes */
+.shape {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Light outline for the shapes */
+    border-radius: 50%;
+    opacity: 0; /* Start invisible */
+    transition: opacity 3s ease-in-out; /* Fade in */
+}
+
+/* Specific shapes */
+.shape1 {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 20%;
+    animation: shape1 40s infinite; /* Abstract animation */
+}
+
+.shape2 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 60%;
+    animation: shape2 35s infinite; /* Abstract animation */
+}
+
+.shape3 {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 30%;
+    animation: shape3 30s infinite; /* Abstract animation */
+}
+
+/* Keyframes for the shape animations */
+@keyframes shape1 {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes shape2 {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes shape3 {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Optional: Add a subtle drop shadow to give a sense of depth */
+.container, .controls, button, input[type="range"] {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+

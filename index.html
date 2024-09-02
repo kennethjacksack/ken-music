@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Portfolio</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <!-- Add Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <img src="pictures/header.png" alt="Header Image" class="header-image">
+    <div class="title-container">
+        <h1>Kenneth's Music</h1>
+        <p>Original Compositions and Scores</p>
+    </div>
+    
+    <!-- Add the shuffle and stop buttons here -->
+    <div class="play-button-container">
+        <button id="shuffleButton" class="icon-button">
+            <i class="fas fa-random"></i>
+        </button>
+        <button id="stopButton" class="icon-button">
+            <i class="fas fa-stop"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Add a button to redirect to experiment.html -->
+<div class="center-button-container">
+    <button class="soundwave-lab-button" onclick="window.location.href='experiment.html';">Soundwave Lab</button>
+</div>
+
+<div class="container">
+    <div class="track-list">
+        <!-- Track 4 -->
+        <div class="track">
+            <img src="pictures/score_004.png" alt="Butterfly" class="track-image">
+            <div class="track-content">
+                <h2><a href="score_004.html">Butterfly</a></h2>
+                <div class="track-metadata">
+                    <p>Piano</p>
+                    <p>September 1, 2024</p>
+                </div>
+            </div>
+        </div>
+        <!-- Track 3 -->
+        <div class="track">
+            <img src="pictures/score_003.png" alt="Pulse Control" class="track-image">
+            <div class="track-content">
+                <h2><a href="score_003.html">Pulse Control</a></h2>
+                <div class="track-metadata">
+                    <p>Electronic</p>
+                    <p>August 31, 2024</p>
+                </div>
+            </div>
+        </div>
+        <!-- Track 2 -->
+        <div class="track">
+            <img src="pictures/score_002.jpg" alt="Find A Way" class="track-image">
+            <div class="track-content">
+                <h2><a href="score_002.html">Find A Way</a></h2>
+                <div class="track-metadata">
+                    <p>Orchestral</p>
+                    <p>August 27, 2024</p>
+                </div>
+            </div>
+        </div>
+        <!-- Track 1 -->
+        <div class="track">
+            <img src="pictures/score_001.jpg" alt="Liminal Piano" class="track-image">
+            <div class="track-content">
+                <h2><a href="score_001.html">Liminal Piano</a></h2>
+                <div class="track-metadata">
+                    <p>Piano</p>
+                    <p>August 27, 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to control the audio playback -->
+<script src="home.js"></script>
+
+</body>
+</html>

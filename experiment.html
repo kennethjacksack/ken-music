@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Control</title>
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.40/build/Tone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="experiment.js" defer></script>
+    <script src="viz.js" defer></script>
+    <script src="vol.js" defer></script>
+    <link rel="stylesheet" href="styles/experiment.css">
+    <!-- Include MathJax library -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <button id="backButton" onclick="window.location.href='index.html';">Back</button>
+    <h1>Audio Control</h1>
+    
+    <!-- Flex container for the visualizer and controls -->
+    <div id="pageContainer">
+        <!-- Container for waveform controls -->
+        <div id="waveformControls">
+            <button id="sineButton" onclick="showFormula('sine')">Sine</button>
+            <button id="squareButton" onclick="showFormula('square')">Square</button>
+            <button id="triangleButton" onclick="showFormula('triangle')">Triangle</button>
+            <button id="sawtoothButton" onclick="showFormula('sawtooth')">Sawtooth</button>
+        </div>
+        
+        <!-- Container for visualizer/canvas -->
+        <div id="visualizerContainer">
+            <div id="audioCanvas"></div>
+        </div>
+
+<!-- Container for theory -->
+<div id="theory">
+    <h2>Waveform Formulas</h2>
+    
+    <!-- Sine Wave Formula -->
+    <div id="sineFormula" class="formula">
+        <p style="font-size: 1.2em;">
+            \( y(t) = A \cdot \sin(2 \pi f t + \phi) \)
+        </p>
+        <p style="font-size: 0.9em;">
+            <strong>A</strong> = amplitude <strong>f</strong> = frequency <strong>\(\phi\)</strong> = phase shift
+        </p>
+    </div>
+
+    <!-- Square Wave Formula -->
+    <div id="squareFormula" class="formula" style="display:none;">
+        <p style="font-size: 1.2em;">
+            \[
+            y_{\text{square}}(t) = \frac{4A}{\pi} \sum_{n=1,3,5,\dots}^\infty \frac{1}{n} \sin(2\pi n f t)
+            \]
+        </p>
+    </div>
+
+    <!-- Triangle Wave Formula -->
+    <div id="triangleFormula" class="formula" style="display:none;">
+        <p style="font-size: 1.2em;">
+            \[
+            y_{\text{triangle}}(t) = \frac{8A}{\pi^2} \sum_{n=1,3,5,\dots}^\infty \frac{(-1)^{(n-1)/2}}{n^2} \sin(2\pi n f t)
+            \]
+        </p>
+    </div>
+
+    <!-- Sawtooth Wave Formula -->
+    <div id="sawtoothFormula" class="formula" style="display:none;">
+        <p style="font-size: 1.2em;">
+            \[
+            y_{\text{sawtooth}}(t) = \frac{2A}{\pi} \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} \sin(2\pi n f t)
+            \]
+        </p>
+    </div>
+
+        <!-- Divider Line -->
+        <div class="divider"></div>
+
+    <!-- Frequency Formula -->
+    <div id="frequencyFormula">
+        <h2>Frequency Formula</h2>
+        <p style="font-size: 1.2em;">
+            \( \text{Frequency} = 440 \times 2^{(\text{n} / 12)} \)
+        </p>
+        <p style="font-size: 0.9em;">
+            Where <strong>n</strong> is the number of semitones away from A4.
+        </p>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Container for sliders -->
+    <div id="slidersContainer">
+        <label for="frequencySlider">Frequency: </label>
+        <input type="range" id="frequencySlider" min="20" max="2000" step="1" value="261.63">
+        <span id="frequencyValue">261.63 Hz</span>
+        <br>
+        <label for="gainSlider">Gain: </label>
+        <input type="range" id="gainSlider" min="-60" max="0" step="0.1" value="-20">
+        <span id="gainValue">-20 dB</span>
+    </div>
+    
+    <!-- Container for the frequency-to-note chart -->
+    <table id="chart">
+        <thead>
+            <tr>
+                <th>Note</th>
+                <th>Oct -1</th>
+                <th>Oct 0</th>
+                <th>Oct 1</th>
+                <th>Oct 2</th>
+                <th>Oct 3</th>
+                <th>Oct 4</th>
+                <th>Oct 5</th>
+                <th>Oct 6</th>
+                <th>Oct 7</th>
+                <th>Oct 8</th>
+                <th>Oct 9</th>
+                <th>Oct 10</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        function showFormula(waveType) {
+            // Hide all formulas
+            const formulas = document.querySelectorAll('.formula');
+            formulas.forEach(formula => formula.style.display = 'none');
+
+            // Show the selected formula
+            document.getElementById(waveType + 'Formula').style.display = 'block';
+        }
+
+        // Show the sine formula by default
+        document.addEventListener('DOMContentLoaded', () => {
+            showFormula('sine');
+        });
+
+        // Frequency-to-note chart generation
+        document.addEventListener('DOMContentLoaded', () => {
+            const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+            const numOctaves = 11;
+            const A4 = 440; // Frequency for A4
+            const baseOctave = 4; // Reference octave for A4
+
+            // Function to generate frequency for a note and octave
+            function getFrequency(note, octave) {
+                const noteIndex = notes.indexOf(note);
+                const semitoneOffset = noteIndex - notes.indexOf('A') + (octave - baseOctave) * 12;
+                return A4 * Math.pow(2, semitoneOffset / 12);
+            }
+
+            // Get the table body element
+            const tbody = document.querySelector('#chart tbody');
+
+            // Create rows for each note
+            for (const note of notes) {
+                const row = document.createElement('tr');
+                
+                // Create cell for the note name
+                let cell = document.createElement('td');
+                cell.textContent = note;
+                row.appendChild(cell);
+
+                // Create cells for each octave
+                for (let octave = -1; octave <= 10; octave++) {
+                    cell = document.createElement('td');
+                    const frequency = getFrequency(note, octave);
+                    cell.textContent = frequency.toFixed(2);
+                    row.appendChild(cell);
+                }
+                
+                tbody.appendChild(row);
+            }
+        });
+    </script>
+</body>
+</html>

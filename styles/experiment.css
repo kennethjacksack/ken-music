@@ -1,0 +1,182 @@
+/* Basic styling for the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif; /* Elegant and formal font */
+    background-color: #1c1c1c; /* Dark gray background for a softer look */
+    color: #dcdcdc; /* Lighter gray text color for better readability */
+    text-align: center; /* Center align text and elements */
+}
+
+/* Styling for the back button */
+#backButton {
+    position: absolute; /* Absolute positioning for placement */
+    top: 10px;
+    left: 10px;
+    padding: 8px 16px; /* Increased padding for better appearance */
+    background-color: #333; /* Slightly lighter dark gray background */
+    color: #dcdcdc; /* Light gray text color */
+    border: 1px solid #555; /* Medium gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Slightly larger font size */
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+}
+
+#backButton:hover {
+    background-color: #444; /* Slightly lighter gray on hover */
+}
+
+/* Styling for headings */
+h1 {
+    font-size: 24px; /* Larger font size for better visibility */
+    margin: 20px 0; /* Margin for spacing */
+    font-weight: 400; /* Normal weight for a formal look */
+    color: #dcdcdc; /* Light gray text color */
+}
+
+/* Styling for buttons */
+button {
+    background-color: #333; /* Slightly lighter dark gray background */
+    color: #dcdcdc; /* Light gray text color */
+    border: 1px solid #555; /* Medium gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 8px 16px; /* Increased padding for better appearance */
+    font-size: 14px; /* Slightly larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+    margin: 5px; /* Margin for spacing between buttons */
+}
+
+button:hover {
+    background-color: #444; /* Slightly lighter gray on hover */
+    transform: scale(1.02); /* Subtle scaling effect on hover */
+}
+
+/* Container for the page content */
+#pageContainer {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the container horizontally */
+    align-items: flex-start; /* Align items at the top */
+    margin: 20px auto; /* Margin for spacing */
+    padding: 10px; /* Padding for better visualization */
+    gap: 20px; /* Space between containers */
+}
+
+/* Container for visualizer and waveform controls */
+#mainContainer {
+    display: flex; /* Use flexbox for layout */
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Space between visualizer and waveform controls */
+}
+
+/* Styling for waveform controls */
+#waveformControls {
+    display: flex; /* Vertical alignment */
+    flex-direction: column; /* Arrange controls vertically */
+    padding: 10px; /* Padding for better visualization */
+    height: 300px; /* Height adjusted for consistency */
+}
+
+/* Container for visualizer/canvas */
+#visualizerContainer {
+    display: flex; /* Use flexbox to center the canvas */
+    justify-content: center; /* Center the canvas horizontally */
+    align-items: center; /* Center the canvas vertically */
+}
+
+/* Canvas styling */
+#audioCanvas {
+    border: 2px dotted #666; /* Lighter dotted border for canvas */
+    background-color: #222; /* Dark gray background for the canvas */
+    width: 600px; /* Width adjusted to fit the visualizer better */
+    height: 300px; /* Height adjusted for consistency */
+}
+
+/* Styling for the theory section */
+#theory {
+    flex: 1; /* Allow theory section to grow and fill available space */
+    padding: 10px; /* Padding for better visualization */
+    height: auto; /* Allow height to adjust based on content */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    text-align: center; /* Align text to the left for readability */
+    min-width: 400px; /* Set a minimum width to ensure adequate space */
+    max-width: 600px; /* Increase max-width to fit the content without scrolling */
+    margin-left: -10px; /* Space between visualizer and theory section */
+}
+
+/* Styling for theory formulas */
+.formula {
+    margin-bottom: 10px; /* Space between formulas */
+}
+
+/* Add divider line between waveform formulas and frequency formula */
+.divider {
+    border-top: 2px solid #666; /* Medium gray line for separation */
+    margin: 20px 0; /* Margin for spacing above and below the line */
+}
+
+/* Styling for sliders */
+input[type="range"] {
+    -webkit-appearance: none; /* Remove default styling */
+    background: #333; /* Slightly lighter dark gray for slider track */
+    width: 200px; /* Fixed width for sliders */
+    height: 8px; /* Increased height of the slider track */
+    margin: 10px 0; /* Margin for spacing between sliders */
+    border-radius: 4px; /* Rounded corners for the slider track */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    background: #dcdcdc; /* Light gray thumb color */
+    width: 14px; /* Increased thumb width */
+    height: 14px; /* Increased thumb height */
+    border-radius: 50%; /* Round thumb */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+input[type="range"]::-moz-range-thumb {
+    background: #dcdcdc; /* Light gray thumb color */
+    width: 14px; /* Increased thumb width */
+    height: 14px; /* Increased thumb height */
+    border-radius: 50%; /* Round thumb */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Styling for the chart */
+#chart {
+    margin: 20px auto; /* Margin for spacing below the interactive elements */
+    display: table;
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 1200px;
+    padding: 10px; /* Padding for better visualization */
+    border: 2px dotted #666; /* Lighter dotted border for chart container */
+    background-color: #333; /* Slightly lighter dark gray background */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #555; /* Medium gray border for table cells */
+    padding: 10px; /* Increased padding for better readability */
+    text-align: center;
+}
+
+th {
+    background-color: #444; /* Medium gray background for table headers */
+    color: #dcdcdc; /* Light gray text color for headers */
+    font-weight: bold;
+}
+
+td {
+    background-color: #333; /* Dark gray background for table cells */
+    color: #dcdcdc; /* Light gray text color for cells */
+}
+
+tr:nth-child(even) td {
+    background-color: #444; /* Medium gray background for even rows */
+}

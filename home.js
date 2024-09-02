@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Butterfly.wav',
         'Find A Way.mp3',
         'Pulse Control A.wav',
-        'Liminal Piano.mp3'
+        'Liminal Piano A.mp3'
         // Add other song filenames here
     ];
 

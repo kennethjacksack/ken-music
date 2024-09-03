@@ -28,10 +28,10 @@
     </div>
 </header>
 
-<!-- Add a button to redirect to experiment.html -->
-<div class="center-button-container">
+<!-- Navigation container for the Soundwave Lab button -->
+<nav class="navigation-container">
     <button class="soundwave-lab-button" onclick="window.location.href='experiment.html';">Soundwave Lab</button>
-</div>
+</nav>
 
 <main class="container">
     <div class="track-list">
@@ -82,8 +82,17 @@
     </div>
 </main>
 
+<!-- Container for the 3D scene -->
+<div id="threeDContainer"></div>
+
 <!-- JavaScript to control the audio playback -->
 <script src="home.js"></script>
+<!-- Include Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Include OrbitControls from a reliable CDN -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<!-- Your custom script -->
+<script type="module" src="3d.js"></script>
 
 </body>
 </html>

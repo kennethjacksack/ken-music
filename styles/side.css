@@ -1,0 +1,62 @@
+/* Styling for the side panel button */
+#toggle-sidepanel-button {
+    position: fixed;
+    right: calc(5%); /* Initial position, slightly more to the left of the panel */
+    top: 50%; /* Centered vertically */
+    transform: translateY(-50%); /* Adjust vertical center alignment */
+    background: transparent; /* No background */
+    color: rgba(255, 255, 255, 0.8); /* Subtle text color for the arrow */
+    border: none; /* Remove border */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top */
+    font-size: 24px; /* Adjust font size for visibility */
+    transition: right 0.3s ease, color 0.3s ease; /* Smooth transition */
+    padding: 0; /* Remove padding */
+    width: auto; /* Auto width for arrow */
+    height: auto; /* Auto height for arrow */
+    display: inline-block; /* Ensure the arrow aligns correctly */
+}
+
+/* Arrow styling for the side panel button */
+#toggle-sidepanel-button::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid rgba(255, 255, 255, 0.8); /* Color of the arrow */
+    border-radius: 4px; /* Rounded corners for a softer look */
+    /* Adjust border width and radius to fine-tune the appearance */
+}
+
+/* Optional hover effect for the side panel button */
+#toggle-sidepanel-button:hover {
+    color: rgba(255, 255, 255, 1); /* Brighten color on hover */
+}
+
+/* Styling for the side panel */
+#side-panel {
+    position: fixed;
+    right: -300px; /* Start off-screen */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Light background for glass effect */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    color: #fff; /* Text color for the panel */
+    transition: right 0.3s ease; /* Smooth transition */
+    padding: 20px; /* Padding inside the panel */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    overflow: auto; /* Allow scrolling if content overflows */
+}
+
+/* Styling for when the side panel is open */
+#side-panel.open {
+    right: 0; /* Slide the panel into view */
+}
+
+/* Styling for the moved state of the side panel button */
+#toggle-sidepanel-button.moved {
+    right: calc(20%); /* Adjust button position when the panel is open */
+}

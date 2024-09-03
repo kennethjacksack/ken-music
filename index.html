@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <img src="pictures/header.png" alt="Header Image" class="header-image">
+    <img src="pictures/header.png" alt="Header image showcasing Kenneth's Music" class="header-image">
     <div class="title-container">
         <h1>Kenneth's Music</h1>
         <p>Original Compositions and Scores</p>
@@ -19,10 +19,10 @@
     
     <!-- Add the shuffle and stop buttons here -->
     <div class="play-button-container">
-        <button id="shuffleButton" class="icon-button">
+        <button id="shuffleButton" class="icon-button" aria-label="Shuffle">
             <i class="fas fa-random"></i>
         </button>
-        <button id="stopButton" class="icon-button">
+        <button id="stopButton" class="icon-button" aria-label="Stop">
             <i class="fas fa-stop"></i>
         </button>
     </div>
@@ -33,11 +33,11 @@
     <button class="soundwave-lab-button" onclick="window.location.href='experiment.html';">Soundwave Lab</button>
 </div>
 
-<div class="container">
+<main class="container">
     <div class="track-list">
         <!-- Track 4 -->
         <div class="track">
-            <img src="pictures/score_004.png" alt="Butterfly" class="track-image">
+            <img src="pictures/score_004.png" alt="Cover image for the track Butterfly" class="track-image">
             <div class="track-content">
                 <h2><a href="score_004.html">Butterfly</a></h2>
                 <div class="track-metadata">
@@ -48,7 +48,7 @@
         </div>
         <!-- Track 3 -->
         <div class="track">
-            <img src="pictures/score_003.png" alt="Pulse Control" class="track-image">
+            <img src="pictures/score_003.png" alt="Cover image for the track Pulse Control" class="track-image">
             <div class="track-content">
                 <h2><a href="score_003.html">Pulse Control</a></h2>
                 <div class="track-metadata">
@@ -59,7 +59,7 @@
         </div>
         <!-- Track 2 -->
         <div class="track">
-            <img src="pictures/score_002.jpg" alt="Find A Way" class="track-image">
+            <img src="pictures/score_002.jpg" alt="Cover image for the track Find A Way" class="track-image">
             <div class="track-content">
                 <h2><a href="score_002.html">Find A Way</a></h2>
                 <div class="track-metadata">
@@ -70,7 +70,7 @@
         </div>
         <!-- Track 1 -->
         <div class="track">
-            <img src="pictures/score_001.jpg" alt="Liminal Piano" class="track-image">
+            <img src="pictures/score_001.jpg" alt="Cover image for the track Liminal Piano" class="track-image">
             <div class="track-content">
                 <h2><a href="score_001.html">Liminal Piano</a></h2>
                 <div class="track-metadata">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <!-- JavaScript to control the audio playback -->
 <script src="home.js"></script>

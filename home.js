@@ -48,6 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.onerror = () => {
             console.error('Failed to load or play the audio file.');
         };
+
+        // Add event listener for when the audio ends
+        audio.onended = () => {
+            if (shuffleButton.classList.contains('active')) {
+                playRandomSong(); // Play a new random song when the current one ends
+            }
+        };
     }
 
     // Function to stop the current audio

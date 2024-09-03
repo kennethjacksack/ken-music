@@ -2,16 +2,17 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     overflow-y: scroll; /* Ensure scrollbar is always visible */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 /* Styling for the header */
 header {
-    width: 100%;
-    height: 600px;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
     position: relative;
     overflow: hidden;
     background-color: #1e1e1e;
@@ -25,47 +26,77 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Ensure the image stays behind the canvas */
+    z-index: 1; /* Ensure the image stays behind the text and controls */
 }
+
+
+
+
+
+
 
 /* Title container for positioning the text over the image */
 .title-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #ffffff;
-    z-index: 3; /* Ensure the text appears above the canvas */
+    top: 35%; /* Keep the existing position */
+    left: 5%;
+    transform: translateY(-50%);
+    text-align: left;
+    color: #e0e0e0;
+    z-index: 4;
+    opacity: 0; /* Start with invisible */
+    animation: fadeInUp 1s ease-out forwards; /* Add animation */
 }
 
 /* Title styling */
 .title-container h1 {
-    font-size: 60px;
+    font-size: 200px;
     font-weight: 600;
     margin: 0;
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
     line-height: 1.2;
+    color: #e0e0e0;
 }
 
 /* Subtitle styling */
 .title-container p {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 300;
     margin: 10px 0 0 0;
     letter-spacing: 0.5px;
     color: #b0b0b0;
 }
 
+/* Keyframes for fade-in and upward movement */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
 /* Play button container */
 .play-button-container {
     position: absolute;
-    top: calc(50% + 80px);
+    bottom: 20px; /* Position at the bottom of the header */
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 3; /* Ensure buttons appear over the canvas */
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 10; /* Ensure buttons appear above everything */
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 /* Icon button styling - no background or borders */
@@ -81,30 +112,34 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-}
-
-/* Icon styling */
-.icon-button i {
-    font-size: 24px;
 }
 
 /* Hover effects for icon buttons */
 .icon-button:hover {
     color: #ff4081; /* Change icon color on hover */
-    transform: scale(1.2); /* Slightly larger on hover */
+    transform: scale(1.1); /* Slightly larger on hover */
 }
 
 /* Active state styling for the shuffle button */
 .icon-button.active {
     color: #ff4081; /* Same color as hover */
-    transform: scale(1.2); /* Same scale as hover */
+    transform: scale(1.1); /* Same scale as hover */
+}
+
+/* Styling for the navigation container */
+.navigation-container {
+    position: relative; /* Position it below the header */
+    top: 100vh; /* Move it just below the header height */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the container */
+    z-index: 5; /* Ensure it is above the 3D element */
+    text-align: center; /* Center align the button */
 }
 
 /* Styling for the Soundwave Lab button */
 .soundwave-lab-button {
-    font-size: 12px; /* Small font size */
-    padding: 5px 10px; /* Minimal padding for a compact look */
+    font-size: 14px; /* Adjusted font size */
+    padding: 8px 16px; /* Minimal padding for a compact look */
     background-color: transparent; /* Transparent background for subtlety */
     border: 1px solid #4a4a4a; /* Thin border for a subtle outline */
     color: #e0e0e0; /* Light grey text */
@@ -117,12 +152,6 @@ header {
 .soundwave-lab-button:hover {
     background-color: #4a4a4a; /* Subtle grey background on hover */
     color: #ffffff; /* Change text to white on hover */
-}
-
-/* Centering the button with some margin */
-.center-button-container {
-    text-align: center;
-    margin-top: 20px;
 }
 
 /* Container for the track list */
@@ -210,4 +239,46 @@ header {
 /* Styling for the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #616161; /* Slightly lighter grey on hover */
+}
+
+
+main.container {
+    position: relative; /* Position above the 3D canvas */
+    top: 0; /* Align at the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Correct centering */
+    z-index: 6; /* Ensure it's above the 3D canvas */
+    background-color: rgba(18, 18, 18, 0.9); /* Optional: Add a background with some transparency */
+    padding: 20px; /* Add padding to create space inside the container */
+    width: 90%; /* Adjust width */
+    max-width: 1200px; /* Limit the maximum width */
+}
+
+
+
+/* Styling for the 3D element container */
+#threeDContainer {
+    position: absolute;
+    top: -4%; /* Keep the existing position */
+    left: 69%;
+    transform: translateX(-50%);
+    width: 120vw;
+    height: 120vh;
+    z-index: 4;
+    pointer-events: auto;
+    overflow: hidden;
+    opacity: 0; /* Start with invisible */
+    animation: fadeInScale 1s ease-out forwards; /* Add animation */
+}
+
+/* Keyframes for fade-in and scaling effect */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1); /* End at normal size */
+    }
 }

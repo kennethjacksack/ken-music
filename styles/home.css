@@ -29,12 +29,6 @@ header {
     z-index: 1; /* Ensure the image stays behind the text and controls */
 }
 
-
-
-
-
-
-
 /* Title container for positioning the text over the image */
 .title-container {
     position: absolute;
@@ -78,15 +72,6 @@ header {
         transform: translateY(-50%);
     }
 }
-
-
-
-
-
-
-
-
-
 
 /* Play button container */
 .play-button-container {
@@ -159,64 +144,72 @@ header {
     padding: 20px;
 }
 
-/* Styling for the track list */
+/* Styling for the track list as a grid */
 .track-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* Space between grid items */
 }
 
 /* Styling for individual tracks */
 .track {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Center align items vertically */
     background-color: #1e1e1e;
-    padding: 15px;
+    padding: 20px; /* Increase padding for better spacing */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    gap: 15px; /* Space between image and text */
+    width: 100%; /* Make sure it fills the grid cell */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    text-decoration: none; /* Remove underline from links inside */
+    transition: outline 0.3s; /* Smooth transition for the outline effect */
+}
+
+/* Outline effect on hover */
+.track:hover {
+    outline: 1px solid #ff4081; /* Outline color and thickness */
 }
 
 /* Styling for track images */
 .track-image {
-    width: 80px;
-    height: 80px;
+    width: 120px; /* Increase thumbnail size */
+    height: 120px; /* Increase thumbnail size */
     border-radius: 10px;
-    margin-right: 20px;
+    margin-right: 20px; /* Maintain spacing between image and content */
+    object-fit: cover; /* Ensure images cover the space properly */
 }
 
 /* Styling for track text content */
 .track-content {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px; /* Increase gap between title and metadata */
+    flex: 1; /* Allow content to take remaining space */
 }
 
 /* Styling for track titles */
 .track h2 {
     margin: 0;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 22px; /* Increase font size for better visibility */
 }
 
 /* Styling for track links */
 .track h2 a {
     color: #e0e0e0;
-    text-decoration: none;
+    text-decoration: none; /* Remove underlines */
     transition: color 0.3s, transform 0.3s;
 }
 
-/* Hover animation for track links */
-.track h2 a:hover {
-    color: #ff4081;
-    transform: scale(1.05);
-}
+
 
 /* Styling for track metadata (genre and date) */
 .track-metadata {
     display: flex;
-    gap: 20px;
+    gap: 15px; /* Reduce gap for better space utilization */
     color: #a0a0a0;
-    font-size: 14px;
+    font-size: 16px; /* Increase font size for readability */
 }
 
 /* Styling for the scrollbar */
@@ -241,7 +234,6 @@ header {
     background: #616161; /* Slightly lighter grey on hover */
 }
 
-
 main.container {
     position: relative; /* Position above the 3D canvas */
     top: 0; /* Align at the top */
@@ -253,8 +245,6 @@ main.container {
     width: 90%; /* Adjust width */
     max-width: 1200px; /* Limit the maximum width */
 }
-
-
 
 /* Styling for the 3D element container */
 #threeDContainer {

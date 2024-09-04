@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Audio - Music Portfolio</title>
     <link rel="stylesheet" href="styles/score_004.css">
+    <link rel="stylesheet" href="styles/side.css"> <!-- Side panel CSS -->
     <script src="player.js" defer></script>
     <script src="testing.js" defer></script>
+    <script src="side.js" defer></script> <!-- Side panel JS -->
     <style>
-        /* Add some basic styling for the toggle button */
+        /* Add some basic styling for the toggle PDF button */
         #toggle-pdf-button {
             margin-top: 20px; /* Space below the controls */
             padding: 10px 20px;
@@ -76,6 +78,7 @@
         <!-- Plain Title -->
         <div class="song-title">Butterfly</div>
         
+        
         <!-- Song Subtitle -->
         <div class="song-subtitle">Gentle Piano Composition</div>
 
@@ -109,6 +112,34 @@
                     height="100%" 
                     frameborder="0">
             </iframe>
+        </div>
+        
+        <!-- Side Panel Button -->
+        <span id="toggle-sidepanel-button"></span>
+
+    </div>
+
+    <!-- Side Panel -->
+    <div id="side-panel">
+        <!-- Section 1: Information -->
+        <div class="side-panel-section" id="info-section">
+            <h3>Information</h3>
+            <p>Made with Musescore 3</p>
+            <p>SF - Yamaha S6</p>
+        </div>
+
+        <!-- Section 2: Dates -->
+        <div class="side-panel-section" id="dates-section">
+            <h3>History</h3>
+            <p><a href="https://youtu.be/XUZP7AQUzqw?si=0n6r_0YfUD8E1t-c" target="_blank">4/2/22 - Written</a></p>
+            <p><a href="https://www.youtube.com/watch?v=_XuWjbk11kg" target="_blank">10/14/23 - Re-written</a></p>
+            <p>9/1/24 - Uploaded</p>
+        </div>
+
+        <!-- Section 3: Inspiration -->
+        <div class="side-panel-section" id="inspiration-section">
+            <h3>Inspiration</h3>
+            <p>Escaping college stress</p>
         </div>
     </div>
 

@@ -27,7 +27,6 @@
     border-bottom: 12px solid transparent;
     border-right: 20px solid rgba(255, 255, 255, 0.8); /* Color of the arrow */
     border-radius: 4px; /* Rounded corners for a softer look */
-    /* Adjust border width and radius to fine-tune the appearance */
 }
 
 /* Optional hover effect for the side panel button */
@@ -42,13 +41,48 @@
     top: 0;
     width: 250px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1); /* Light background for glass effect */
+    background: rgb(55, 55, 55); /* Background color */
     backdrop-filter: blur(10px); /* Frosted glass effect */
-    color: #fff; /* Text color for the panel */
+    color: #fff; /* Text color */
     transition: right 0.3s ease; /* Smooth transition */
     padding: 20px; /* Padding inside the panel */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     overflow: auto; /* Allow scrolling if content overflows */
+    z-index: 999; /* Ensure the panel is above other content */
+}
+
+
+
+/* Styling for links inside the side panel */
+#side-panel a {
+    color: #e0e0e0; /* Light color for readability */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect for links inside the side panel */
+#side-panel a:hover {
+    color: #ff4081; /* Highlight color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+
+/* Styling for side panel sections */
+.side-panel-section {
+    margin-bottom: 20px; /* Space between sections */
+}
+
+.side-panel-section h3 {
+    font-size: 18px; /* Font size for section titles */
+    color: #e0e0e0; /* Light color for section titles */
+    border-bottom: 1px solid #444; /* Underline for section titles */
+    padding-bottom: 5px; /* Space below section titles */
+}
+
+.side-panel-section p {
+    color: #d0d0d0ca; /* Slightly darker grey for readability */
+    font-size: 16px; /* Font size for text */
 }
 
 /* Styling for when the side panel is open */

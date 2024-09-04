@@ -168,6 +168,9 @@ input[type="range"]::-moz-range-thumb {
     color: #555; /* Slightly lighter on hover */
 }
 
+
+
+
 /* Styling for the background shapes and gradient */
 .background-shapes {
     position: absolute;
@@ -177,23 +180,34 @@ input[type="range"]::-moz-range-thumb {
     height: 100%;
     pointer-events: none; /* Ensure shapes don't block interactions */
     z-index: 0; /* Ensure shapes are behind other content */
-    background: linear-gradient(120deg, #20202084, #1e1e1ef8, #292929f9, #141414f9);
-    background-size: 500% 500%; /* Larger size for smoother transitions */
-    animation: gradientAnimation 30s ease infinite; /* Subtle, slightly faster animation */
+    background: linear-gradient(120deg, #20202084, #1e1e1ef8, #222222f9, #151515f9);
+    background-size: 200% 200%; /* Smaller size for subtler transitions */
+    animation: gradientAnimation 80s ease infinite; /* Slower, more subtle animation */
 }
 
 /* Gradient background animation */
 @keyframes gradientAnimation {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
 }
+
+
+
+
+
 
 /* Styling for abstract shapes */
 .shape {
